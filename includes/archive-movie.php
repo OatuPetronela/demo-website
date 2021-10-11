@@ -1,6 +1,4 @@
-<?php require_once('includes/header.php');?>
-        <h1 class="text-white">Movies</h1>
-        <div class="row">
+<div class="row">
             <?php 
                 $i = 1;
                 foreach($movies as $movie){ ?>
@@ -18,5 +16,3 @@
                 }
             ?>
         </div>
-        <?php require_once('includes/footer.php');?>
-        
