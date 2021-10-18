@@ -11,7 +11,7 @@
                     century when humans are colonizing Pandora, a lush habitable moon of a gas giant in the Alpha Centauri star system, in order to mine the valuable mineral unobtanium.<br>The expansion of the mining colony threatens the continued existence
                     of a local tribe of Na'vi – a humanoid species indigenous to Pandora. The film's title refers to a genetically engineered Na'vi body operated from the brain of a remotely located human that is used to interact with the natives of Pandora.<br>Avatar
                     premiered in London on December 10, 2009, and was released in the United States on December 18 to positive reviews, with critics highly praising its ground-breaking visual effects.During its theatrical run, the film broke several box
-                    office records and became the highest-grossing film at the time, as well as in the United States and Canada, surpassing Cameron's Titanic, which had held those records for twelve years. <br><br><strong> Directed by:	James Cameron<br>Running time: <?php runtime_prettier(162)?> <br>
+                    office records and became the highest-grossing film at the time, as well as in the United States and Canada, surpassing Cameron's Titanic, which had held those records for twelve years. <br><br><strong> Directed by:	James Cameron<br>Running time: <?php echo runtime_prettier(162)?> <br>
                     Cast :</strong> </p><br>Cast:</strong></p>
                 <ul>
                     <li>Sam Worthington</li>

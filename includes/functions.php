@@ -1,10 +1,11 @@
 
 <?php
-function runtime_prettier($movieLengthInMinutes){
+function runtime_prettier($movieLengthInMinutes = 0){
+
     $hours = floor($movieLengthInMinutes / 60);
     $minutes = $movieLengthInMinutes % 60;
-    echo $hours . " hours " . $minutes . " minutes" ;
-}
+    return $hours . " ". (($hours==1)? 'hour ' : 'hours') . " ". $minutes . " " . (($minutes==1)? 'minute  ' : 'minutes') ;
+};
 
 function check_old_movie( $yearAppearance){
     $year = date("Y") - $yearAppearance;
@@ -14,6 +15,10 @@ function check_old_movie( $yearAppearance){
         return  $year;
     }
 };
+
+function find_by_id($var, $movieId){
+    return $var['id'] == $movieId;
+}
 
 ?>
 

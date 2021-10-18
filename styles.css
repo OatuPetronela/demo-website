@@ -26,6 +26,13 @@
                     color: black;
                 }
                 
+                .row {
+                    margin: 10px;
+                    padding: 10px;
+                    width: 100%;
+                    min-height: 100vh;
+                }
+                
                 .container {
                     width: 100%;
                 }
@@ -78,9 +85,7 @@
                     background-color: #45a049;
                 }
                 
-                .movie1,
-                .movie2,
-                .movie3 {
+                .movie {
                     font-size: 15px;
                     text-align: left;
                     width: 100%;
@@ -88,11 +93,11 @@
                     color: black;
                     background-color: #F5FFFA;
                     font-family: sans-serif;
-                    margin-top: 0px;
                 }
                 
                 .titileMovies {
-                    margin-left: 35px;
+                    margin-left: 50px;
+                    margin-top: 5px;
                 }
                 
                 .contact {
@@ -109,7 +114,7 @@
                 .welcome {
                     color: white;
                     margin-top: 150px;
-                    font-family: 'Koh Santepheap', cursive;
+                    font-family: 'Koh Santepheap';
                     font-size: 40px;
                 }
                 
@@ -120,4 +125,13 @@
                 nav ul li {
                     font-size: 18px;
                     margin: 5px;
+                }
+                
+                .button_error {
+                    text-align: center;
+                    margin: 250px;
+                }
+                
+                .movie {
+                    font-family: 'Koh Santepheap';
                 }
