@@ -12,12 +12,11 @@ function check_old_movie($yearAppearance)
 {
     $year = date("Y") - $yearAppearance;
     if ($year <= 40) {
-        return "False";
+        return false;
     } else {
-        return  $year;
+        return '<span class="badge bg-warning text-dark ml-2 mt-3">' . 'Old movie: ' . $year. ' years' .  '</span>';
     }
 };
-
 function find_by_id($var, $movieId)
 {
     return $var['id'] == $movieId;
@@ -30,4 +29,3 @@ function find_by_title($var,  $searchword)
 
 
 ?>
-

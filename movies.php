@@ -13,7 +13,7 @@
                         $moviePlot = $movie['plot'];
                         echo require('includes/archive-movie.php');
                         ?></p>
-                    <a href="movie.php?movie_id=<?php echo $movie['id']; ?>" class="btn btn-success ">Read more</a>
+                    <a href="movie.php?movie_id=<?php echo $movie['id']; ?>" class="btn btn-success">Read more</a>
                 </div>
             </div>
         </div>
