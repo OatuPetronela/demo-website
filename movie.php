@@ -1,5 +1,6 @@
 <div class="movie w-100">
     <?php require_once('includes/header.php'); ?>
+
     <?php
     $movieId = @$_GET["movie_id"];
     if ($movieId != null) {
@@ -82,10 +83,76 @@
                     $implode = implode(", ", $value);
                     echo '<b>Genres :</b> ' .  $implode
                 ?><br>
-        </div>
-    </div>
-    <?php }; ?>
+    <div class="container">
+        <?php 
+        if(isset($_POST['submit_form'])){
+            $name= $_POST['name'];
+            $email= $_POST['email'];
+            $message= $_POST['message'];
+            $hide = 2;
+            echo '<div class="alert alert-success mt-5" role="alert">
+            Mesajul a fost trimis cu succes!
+          </div>';
+        }
 
+        $table_create = "CREATE TABLE IF NOT EXISTS reviews(
+          id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+          movie_id INT(10),
+          name VARCHAR(30) NOT NULL,
+          email VARCHAR(50) NOT NULL,
+          message VARCHAR(255) NOT NULL
+        )";
+
+        mysqli_query($conect, $table_create) ;
+
+        if(isset($_POST['submit_form'])){
+           $name = $_POST['name'];
+           $email = $_POST['email'];
+           $message = $_POST['message'];
+           $movie_id = $movieId;
+           $insert_table = "INSERT INTO reviews(movie_id, name, email, message)VALUES ('$movie_id', '$name','$email', '$message')";
+         if(mysqli_query($conect , $insert_table)){
+            echo "";
+         }else{
+            echo "Please try again" . mysqli_error($conect);
+         }
+       }
+        ?>
+        <?php if(!isset($hide)){ ?>
+      <form action="" method="POST" class="mt-5 ml-3"> 
+        <h5 class="text-center">REVIEW  MOVIE<h5>
+        <label for="name">Name*</label>      
+        <input type="text" name="name" placeholder="Name" required>    
+        <label for="email">Email*</label>    
+        <input  type="email"  name="email" placeholder="Email" class="email" required>   <br> 
+        <label for="message">Message</label>      
+        <textarea  name="message" placeholder="Write something.." style="height:200px" required></textarea>    
+        <input class="checkbox_gdpr" type="checkbox"  name="gdpr" required> <span><b>Sunt de acord cu procesarea datelor cu caracter personal. </b></span>
+        <input type="submit" name='submit_form' value="Submit" class="btn_review">  
+      </form>
+        <?php  }?>
+        <div>
+        <?php
+         if(isset($_GET["movie_id"])){
+            $id = (int)$_GET["movie_id"];
+            
+            $query_fetch = mysqli_query($conect,"SELECT * FROM reviews WHERE  movie_id = $id");
+            
+             while($show = mysqli_fetch_array($query_fetch)){
+                echo "movie_id: " . $show['movie_id'] . " " . $show['name'] . $show['message']." <br></a>";
+             } 
+            
+            } 
+            else{
+                echo "It is not set.";
+            }
+        ?>
+        </div>
+        
+    </div>
+    </div>
+</div>
+    <?php }; ?>
         <?php
         } else {  ?>
             <?php require('includes/error.php'); ?>
