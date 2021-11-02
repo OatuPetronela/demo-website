@@ -131,24 +131,37 @@
         <input type="submit" name='submit_form' value="Submit" class="btn_review">  
       </form>
         <?php  }?>
-        <div>
-        <?php
-         if(isset($_GET["movie_id"])){
-            $id = (int)$_GET["movie_id"];
-            
-            $query_fetch = mysqli_query($conect,"SELECT * FROM reviews WHERE  movie_id = $id");
-            
-             while($show = mysqli_fetch_array($query_fetch)){
-                echo "movie_id: " . $show['movie_id'] . " " . $show['name'] . $show['message']." <br></a>";
-             } 
-            
-            } 
-            else{
-                echo "It is not set.";
-            }
-        ?>
-        </div>
-        
+        <?php 
+                $movie_id =$movieId;
+                $query_fetch = mysqli_query($conect,"SELECT * FROM reviews WHERE  movie_id = $movie_id");
+                $reviews = array();
+                while($r = mysqli_fetch_array($query_fetch)){
+                    $reviews[] = $r;
+                };?>
+                
+        <?php if( $reviews != null && count( $reviews) > 0){ ?>
+               
+            <?php foreach( $reviews as $review) {
+               ?>
+                <div class="card mt-3" >
+                    <div class="card-header">
+                        <?php echo $review['name']?>
+                    </div>
+                    <div class="card-body">
+                         <?php echo $review['message']?>
+                    </div>
+                </div>
+            <?php } ?>
+
+        <?php }else { ?>
+            <div class="card"><div class="card-body text-center">Fi primul care scrie in review !</div></div>
+        <?php } ?>
+
+
+
+
+
+
     </div>
     </div>
 </div>
