@@ -30,17 +30,4 @@ function conectDB($host='localhost', $username='php-user', $password='php-passwo
     return mysqli_connect($host, $username, $password, $dbname );
 }
 $conect = conectDB();
-
-// if(!$conect){
-// die ('Conexiune esuata' . mysqli_connect_error());
-// }
-
-// if(mysqli_query($conect, $sql)){
-//     echo "Actiune a decurs cu succes";
-
-// }else{
-//     echo "Eroare!" . mysqli_error($conect);
-// }
-
-
 ?>
